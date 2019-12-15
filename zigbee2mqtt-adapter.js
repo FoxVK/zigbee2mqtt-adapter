@@ -80,6 +80,10 @@ class ZigbeeMqttAdapter extends Adapter {
       }
     }
     if (!topic.startsWith(`${this.config.prefix}/bridge`)) {
+	  if(!msg.device) {
+		  console.error('Problem on line 84', msg)
+		  return;
+	  }
       const description = Devices[msg.device.modelID];
       const device = this.devices[msg.device.friendlyName];
       if (!device) {
