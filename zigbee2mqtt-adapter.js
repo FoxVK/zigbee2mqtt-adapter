@@ -82,7 +82,9 @@ class ZigbeeMqttAdapter extends Adapter {
     if (!topic.startsWith(`${this.config.prefix}/bridge`)) {
       const description = Devices[msg.device.modelId];
       const device = this.devices[msg.device.friendlyName];
+      console.error('jedu na 86')
       if (!device) {
+		  console.error('pruser 86')
         return;
       }
       if (msg.action && description.events[msg.action]) {
@@ -112,6 +114,7 @@ class ZigbeeMqttAdapter extends Adapter {
   addDevice(info) {
     const description = Devices[info.modelId];
     if (!description) {
+		console.error('pruser 115')
       return;
     }
     const device = new MqttDevice(this, info.friendly_name, description);
