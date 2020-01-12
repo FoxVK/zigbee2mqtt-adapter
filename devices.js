@@ -126,7 +126,7 @@ module.exports = {
       },
     },
   },
-  'ikea.led1836g9': {
+  'TRADFRI bulb E27 WW 806lm': {
     name: 'TRADFRI bulb E27 WW 806lm',
         '@type': ['Light', 'OnOffSwitch'],
     properties: {
@@ -150,7 +150,7 @@ module.exports = {
       },
     },
   },
-  'ikea.e1603/e1702': {
+  'TRADFRI control outlet': {
     name: 'TRADFRI control outlet',
         '@type': ['OnOffSwitch'],
     properties: {
@@ -159,6 +159,31 @@ module.exports = {
         type: 'boolean',
         fromMqtt: v => v === 'ON',
         toMqtt: v => (v ? 'ON' : 'OFF'),
+      },
+      linkquality: {
+        type: 'integer',
+        readOnly: true,
+      },
+    },
+  },
+  'TRADFRI ON/OFF switch': {
+    name: 'TRADFRI ON/OFF switch',
+        '@type': ['OnOffSwitch'],
+    properties: {
+      click: {
+        '@type': 'ClickProperty',
+        type: 'boolean',
+        fromMqtt: v => v === 'ON',
+        toMqtt: v => (v ? 'ON' : 'OFF'),
+        readOnly: true,
+      },
+      linkquality: {
+        type: 'integer',
+        readOnly: true,
+      },
+      battery: {
+        type: 'integer',
+        readOnly: true,
       },
     },
   },
